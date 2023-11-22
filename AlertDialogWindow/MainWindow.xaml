@@ -1,0 +1,55 @@
+﻿<Window x:Class="AlertDialogWindow.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:AlertDialogWindow"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="MainWindow" Background="AntiqueWhite"
+        Width="525"
+        Height="350"
+        mc:Ignorable="d">
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Width" Value="120" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Button x:Name="askbtn" Click="askbtn_Click" Content="Ask(3秒自动关闭)" />
+        <Button x:Name="infobtn"
+                Grid.Row="0"
+                Grid.Column="1"
+                Click="infobtn_Click"
+                Content="Info" />
+        <Button x:Name="mini"
+                Grid.Row="0"
+                Grid.Column="2"
+                Click="mini_Click"
+                Content="miniMode" />
+        <Button x:Name="Full"
+                Grid.Row="1"
+                Grid.Column="0"
+                Click="Full_Click"
+                Content="fullMode" />
+        <Button x:Name="askWithoutOwner"
+                Grid.Row="1"
+                Grid.Column="1"
+                Click="askWithoutOwner_Click"
+                Content="askWithoutOwner" />
+        <Button x:Name="error"
+                Grid.Row="1"
+                Grid.Column="2"
+                Click="error_Click"
+                Content="error" />
+    </Grid>
+</Window>

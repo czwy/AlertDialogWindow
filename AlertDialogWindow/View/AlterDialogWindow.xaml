@@ -1,0 +1,174 @@
+﻿<toolkit:BaseChildWindow x:Class="AlertDialogWindow.View.AlterDialogWindow"
+                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                         xmlns:helper="clr-namespace:AlertDialogWindow.Helper"
+                         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+                         xmlns:local="clr-namespace:AlertDialogWindow.View"
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                         xmlns:toolkit="clr-namespace:AlertDialogWindow.Toolkit"
+                         d:DesignHeight="300"
+                         d:DesignWidth="300"
+                         mc:Ignorable="d">
+    <toolkit:BaseChildWindow.Resources>
+        <ResourceDictionary>
+            <local:AlterDialogWindow_IconConverter x:Key="AlterDialogWindow_IconConverter" />
+            <local:AlterDialogWindow_ButtonConverter x:Key="AlterDialogWindow_ButtonConverter" />
+            <helper:VisibilityConverter x:Key="VisibilityConverter" />
+            <DataTemplate x:Key="Template0">
+                <StackPanel Orientation="Horizontal">
+                    <toolkit:ImageButton Width="108" Height="56"
+                                         Command="{Binding YesCommand}"
+                                         DownImage="{Binding DialogType, Converter={StaticResource AlterDialogWindow_ButtonConverter}, ConverterParameter='0|2'}"
+                                         Foreground="{Binding DialogType, Converter={StaticResource AlterDialogWindow_ButtonConverter}, ConverterParameter='0|3'}"
+                                         HoverImage="{Binding DialogType, Converter={StaticResource AlterDialogWindow_ButtonConverter}, ConverterParameter='0|1'}"
+                                         NormalImage="{Binding DialogType, Converter={StaticResource AlterDialogWindow_ButtonConverter}, ConverterParameter='0|0'}">
+                        <Grid>
+                            <TextBlock FontSize="16" Foreground="White" Text="{Binding YesButtonText}" Visibility="{Binding IsCountdown, Converter={StaticResource VisibilityConverter}, ConverterParameter='!'}" />
+                            <StackPanel Orientation="Horizontal" TextBlock.Foreground="White" Visibility="{Binding IsCountdown, Converter={StaticResource VisibilityConverter}}">
+                                <TextBlock FontSize="16" Text="{Binding YesButtonText}" />
+                                <TextBlock FontSize="14" Text="{Binding Countdown, StringFormat={}({0}s)}" />
+                            </StackPanel>
+                        </Grid>
+                    </toolkit:ImageButton>
+                    <toolkit:ImageButton Width="108" Height="32"
+                                         Margin="29,0,0,0"
+                                         Command="{Binding NoCommand}"
+                                         DownImage="{Binding DialogType, Converter={StaticResource AlterDialogWindow_ButtonConverter}, ConverterParameter='1|2'}"
+                                         Foreground="#366d85"
+                                         HoverImage="{Binding DialogType, Converter={StaticResource AlterDialogWindow_ButtonConverter}, ConverterParameter='1|1'}"
+                                         IsDefault="True"
+                                         NormalImage="{Binding DialogType, Converter={StaticResource AlterDialogWindow_ButtonConverter}, ConverterParameter='1|0'}">
+                        <TextBlock FontSize="16" Foreground="#0099ff" Text="{Binding NoButtonText}" />
+                    </toolkit:ImageButton>
+
+                </StackPanel>
+            </DataTemplate>
+            <DataTemplate x:Key="Template1">
+                <StackPanel Orientation="Horizontal">
+                    <toolkit:ImageButton Width="108" Height="56"
+                                         Command="{Binding YesCommand}"
+                                         DownImage="{Binding DialogType, Converter={StaticResource AlterDialogWindow_ButtonConverter}, ConverterParameter='0|2'}"
+                                         FontSize="18"
+                                         Foreground="{Binding DialogType, Converter={StaticResource AlterDialogWindow_ButtonConverter}, ConverterParameter='0|3'}"
+                                         HoverImage="{Binding DialogType, Converter={StaticResource AlterDialogWindow_ButtonConverter}, ConverterParameter='0|1'}"
+                                         IsDefault="True"
+                                         NormalImage="{Binding DialogType, Converter={StaticResource AlterDialogWindow_ButtonConverter}, ConverterParameter='0|0'}">
+                        <Grid>
+                            <TextBlock FontSize="16" Foreground="White" Text="{Binding YesButtonText}" Visibility="{Binding IsCountdown, Converter={StaticResource VisibilityConverter}, ConverterParameter='!'}" />
+                            <StackPanel Orientation="Horizontal" TextBlock.Foreground="White" Visibility="{Binding IsCountdown, Converter={StaticResource VisibilityConverter}}">
+                                <TextBlock FontSize="16" Text="{Binding YesButtonText}" />
+                                <TextBlock FontSize="14" Text="{Binding Countdown, StringFormat={}({0}s)}" />
+                            </StackPanel>
+                        </Grid>
+                    </toolkit:ImageButton>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="TemplateMini">
+                <StackPanel Margin="40,15,40,15" HorizontalAlignment="Center" Orientation="Horizontal">
+                    <StackPanel.Resources>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="FontSize" Value="18" />
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                        </Style>
+                        <Style TargetType="{x:Type toolkit:SelectableTextBlock}">
+                            <Setter Property="FontSize" Value="18" />
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                        </Style>
+                    </StackPanel.Resources>
+                    <Image Width="32" Height="34"
+                           HorizontalAlignment="Right"
+                           RenderOptions.BitmapScalingMode="LowQuality"
+                           RenderOptions.CachingHint="Cache"
+                           SnapsToDevicePixels="False"
+                           Source="{Binding DialogType, Converter={StaticResource AlterDialogWindow_IconConverter}}"
+                           Stretch="UniformToFill" />
+                    <ScrollViewer MaxWidth="300" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                        <toolkit:SelectableTextBlock Margin="0,0,0,0"
+                                                     HorizontalAlignment="Left" FontSize="18"
+                                                     Foreground="#333333"
+                                                     Text="{Binding Content}"
+                                                     TextWrapping="Wrap" />
+                    </ScrollViewer>
+                </StackPanel>
+            </DataTemplate>
+            <DataTemplate x:Key="TemplateNormal">
+                <StackPanel Margin="40,18,40,0" HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Horizontal">
+                    <StackPanel.Resources>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="FontSize" Value="18" />
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                        </Style>
+                        <Style TargetType="{x:Type toolkit:SelectableTextBlock}">
+                            <Setter Property="FontSize" Value="18" />
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                        </Style>
+                    </StackPanel.Resources>
+                    <Image Width="40" Height="42"
+                           HorizontalAlignment="Right"
+                           RenderOptions.BitmapScalingMode="LowQuality"
+                           RenderOptions.CachingHint="Cache"
+                           SnapsToDevicePixels="False"
+                           Source="{Binding DialogType, Converter={StaticResource AlterDialogWindow_IconConverter}}"
+                           Stretch="UniformToFill" />
+                    <ScrollViewer MaxWidth="280" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                        <toolkit:SelectableTextBlock Margin="0,0,0,0"
+                                                     HorizontalAlignment="Left" FontSize="18"
+                                                     Foreground="#333333"
+                                                     Text="{Binding Content}"
+                                                     TextWrapping="Wrap" />
+                    </ScrollViewer>
+                </StackPanel>
+            </DataTemplate>
+            <DataTemplate x:Key="TemplateFull">
+                <Grid Margin="40,10,40,0" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Image Width="54" Height="56"
+                           HorizontalAlignment="Center"
+                           RenderOptions.BitmapScalingMode="LowQuality"
+                           RenderOptions.CachingHint="Cache"
+                           SnapsToDevicePixels="False"
+                           Source="{Binding DialogType, Converter={StaticResource AlterDialogWindow_IconConverter}}"
+                           Stretch="UniformToFill" />
+                    <ScrollViewer Grid.Row="1" MaxWidth="300"
+                                  Margin="0,12,0,0"
+                                  HorizontalScrollBarVisibility="Disabled"
+                                  VerticalScrollBarVisibility="Auto">
+                        <StackPanel>
+                            <toolkit:SelectableTextBlock Margin="0,0,0,0"
+                                                         HorizontalAlignment="Center"
+                                                         FontSize="18" Foreground="#333333"
+                                                         Text="{Binding Content}"
+                                                         TextWrapping="Wrap" />
+                            <toolkit:SelectableTextBlock HorizontalAlignment="Center" FontSize="14" Foreground="#999999" Text="{Binding SubContent}" />
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
+    </toolkit:BaseChildWindow.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Top" Content="{Binding}">
+            <ContentPresenter.ContentTemplateSelector>
+                <local:AlterDialogWindowContentTemplateSelector Template0="{StaticResource TemplateMini}" Template1="{StaticResource TemplateNormal}" Template2="{StaticResource TemplateFull}" />
+            </ContentPresenter.ContentTemplateSelector>
+        </ContentPresenter>
+        <ContentPresenter Grid.Row="1" Margin="0,0,0,16"
+                          HorizontalAlignment="center"
+                          VerticalAlignment="Top"
+                          Content="{Binding}"
+                          Visibility="{Binding DialogMode, Converter={helper:EnumExcludeConverter}, ConverterParameter='Mini'}">
+            <ContentPresenter.ContentTemplateSelector>
+                <local:AlterDialogWindowButtonDataTemplateSelector Template0="{StaticResource Template0}" Template1="{StaticResource Template1}" />
+            </ContentPresenter.ContentTemplateSelector>
+        </ContentPresenter>
+    </Grid>
+</toolkit:BaseChildWindow>
