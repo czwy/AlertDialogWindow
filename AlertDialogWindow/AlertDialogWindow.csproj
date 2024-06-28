@@ -53,6 +53,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
@@ -82,6 +84,24 @@
     <Compile Include="Helper\UIEnums.cs" />
     <Compile Include="Helper\WindowNativeMethods.cs" />
     <Compile Include="Toolkit\BaseChildWindow\BaseChildWindow.cs" />
+    <Compile Include="Toolkit\HtmlTextBlock\Defines\Cofe3\Implements\HtmlAttributeStringSerializer.cs" />
+    <Compile Include="Toolkit\HtmlTextBlock\Defines\Cofe3\Implements\ParamParser.cs" />
+    <Compile Include="Toolkit\HtmlTextBlock\Defines\Cofe3\Interfaces\ICofeService.cs" />
+    <Compile Include="Toolkit\HtmlTextBlock\Defines\Cofe3\Interfaces\IParamParser.cs" />
+    <Compile Include="Toolkit\HtmlTextBlock\Defines\Cofe3\Interfaces\IPropertySerializer.cs" />
+    <Compile Include="Toolkit\HtmlTextBlock\Defines\CurrentState.cs" />
+    <Compile Include="Toolkit\HtmlTextBlock\Defines\Defines.cs" />
+    <Compile Include="Toolkit\HtmlTextBlock\Defines\HtmlTextBlockDependencyProperty.cs" />
+    <Compile Include="Toolkit\HtmlTextBlock\Defines\HtmlTextBlockHeader.cs" />
+    <Compile Include="Toolkit\HtmlTextBlock\Defines\HtmlTextBlockPropertyList.cs" />
+    <Compile Include="Toolkit\HtmlTextBlock\Defines\HtmlTextBlockStylelist.cs" />
+    <Compile Include="Toolkit\HtmlTextBlock\Defines\HtmlTextBlockUtils.cs" />
+    <Compile Include="Toolkit\HtmlTextBlock\HtmlHighlightTextBlock.cs" />
+    <Compile Include="Toolkit\HtmlTextBlock\Parse\HtmlParser.cs" />
+    <Compile Include="Toolkit\HtmlTextBlock\Parse\HtmlTag.cs" />
+    <Compile Include="Toolkit\HtmlTextBlock\Parse\HtmlTagNode.cs" />
+    <Compile Include="Toolkit\HtmlTextBlock\Parse\HtmlTagTree.cs" />
+    <Compile Include="Toolkit\HtmlTextBlock\Parse\HtmlUpdater.cs" />
     <Compile Include="Toolkit\ImageButton\ImageButton.cs" />
     <Compile Include="Toolkit\SelectableTextBlock\SelectableTextBlock.cs" />
     <Compile Include="ViewModel\VMAlterDialog.cs" />
@@ -129,6 +149,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

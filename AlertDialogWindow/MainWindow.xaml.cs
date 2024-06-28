@@ -53,7 +53,7 @@ namespace AlertDialogWindow
 
         private void infobtn_Click(object sender, RoutedEventArgs e)
         {
-            ShowAlertDialog(AlertDialogMode.Normal, AlertDialogType.Info, "是否退出？", yesbuttonText: "确定", nobuttonText: "取消", parent: this);
+            ShowAlertDialog(AlertDialogMode.Normal, AlertDialogType.Info, "打开[a href=https://www.chinadaily.com.cn/]中国日报[/a]网站", yesbuttonText: "确定", nobuttonText: "取消", parent: this);
         }
 
         private void mini_Click(object sender, RoutedEventArgs e)

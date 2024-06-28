@@ -85,11 +85,12 @@
                            Source="{Binding DialogType, Converter={StaticResource AlterDialogWindow_IconConverter}}"
                            Stretch="UniformToFill" />
                     <ScrollViewer MaxWidth="300" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-                        <toolkit:SelectableTextBlock Margin="0,0,0,0"
-                                                     HorizontalAlignment="Left" FontSize="18"
-                                                     Foreground="#333333"
-                                                     Text="{Binding Content}"
-                                                     TextWrapping="Wrap" />
+                        <toolkit:HtmlHighlightTextBlock Margin="0,0,0,0"
+                                                        HorizontalAlignment="Left"
+                                                        VerticalAlignment="Center" FontSize="18"
+                                                        Foreground="#333333"
+                                                        Html="{Binding Content}"
+                                                        TextWrapping="Wrap" />
                     </ScrollViewer>
                 </StackPanel>
             </DataTemplate>
@@ -113,11 +114,12 @@
                            Source="{Binding DialogType, Converter={StaticResource AlterDialogWindow_IconConverter}}"
                            Stretch="UniformToFill" />
                     <ScrollViewer MaxWidth="280" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-                        <toolkit:SelectableTextBlock Margin="0,0,0,0"
-                                                     HorizontalAlignment="Left" FontSize="18"
-                                                     Foreground="#333333"
-                                                     Text="{Binding Content}"
-                                                     TextWrapping="Wrap" />
+                        <toolkit:HtmlHighlightTextBlock Margin="0,0,0,0"
+                                                        HorizontalAlignment="Left"
+                                                        VerticalAlignment="Center" FontSize="18"
+                                                        Foreground="#333333"
+                                                        Html="{Binding Content}"
+                                                        TextWrapping="Wrap" />
                     </ScrollViewer>
                 </StackPanel>
             </DataTemplate>
@@ -139,11 +141,11 @@
                                   HorizontalScrollBarVisibility="Disabled"
                                   VerticalScrollBarVisibility="Auto">
                         <StackPanel>
-                            <toolkit:SelectableTextBlock Margin="0,0,0,0"
-                                                         HorizontalAlignment="Center"
-                                                         FontSize="18" Foreground="#333333"
-                                                         Text="{Binding Content}"
-                                                         TextWrapping="Wrap" />
+                            <toolkit:HtmlHighlightTextBlock Margin="0,0,0,0"
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center" FontSize="18"
+                                                            Html="{Binding Content}"
+                                                            TextWrapping="Wrap" />
                             <toolkit:SelectableTextBlock HorizontalAlignment="Center" FontSize="14" Foreground="#999999" Text="{Binding SubContent}" />
                         </StackPanel>
                     </ScrollViewer>
